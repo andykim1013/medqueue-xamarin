@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginDesign3.Queue">
+    <Grid Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Row="0">
+            <!-- 진료과 입력 -->
+            <StackLayout Orientation="Horizontal" Margin="0,20,0,0" HorizontalOptions="Start">
+                <Label 
+                Text="진료과"
+                VerticalOptions="Center" 
+            />
+                <Entry 
+                x:Name="departmentEntry" 
+                Placeholder="진료과를 입력하세요"
+                WidthRequest="200"
+                IsReadOnly="True"  
+                    />
+                <Button
+                Text="편집완료"
+                Clicked="OnUpdateDepartmentClicked"
+                IsVisible="False"  
+                        />
+            </StackLayout>
+
+            <!-- 진료실/진료의 입력 -->
+            <StackLayout Orientation="Horizontal" Margin="0,5,0,0" HorizontalOptions="Start">
+                <Label Text="진료의" VerticalOptions="Center" 
+                       TextColor="Gray"/>
+                <Entry x:Name="doctorEntry" Placeholder="담당 의사를 입력하세요"
+                       WidthRequest="180" IsReadOnly="True" TextColor="Black"/>
+                <Button Text="편집완료" Clicked="OnUpdateDoctorClicked" IsVisible="False"/>
+            </StackLayout>
+            
+            <!-- 대기 명단 관리 -->
+            <Label Text="대기자" Margin="0,0,0,0"
+                   VerticalOptions="Center" HorizontalOptions="Start"/>
+            <StackLayout Orientation="Horizontal" Margin="10,5,10,0" HorizontalOptions="Start">
+                <Entry x:Name="PatientPlus" Placeholder="이름" 
+                       WidthRequest="100" HorizontalTextAlignment="Center"/>
+                <Entry x:Name="PatientNumberPlus" Placeholder="환자번호"
+                       WidthRequest="100" HorizontalTextAlignment="Center"/>
+                <Button Text="+" Clicked="OnAddPatientClicked"
+                        WidthRequest="40" HeightRequest="40"
+                        BackgroundColor="#05804C" CornerRadius="3" TextColor="White"/>
+                <Button Text="-" Clicked="OnRemovePatientClicked"
+                        WidthRequest="40" HeightRequest="40" BackgroundColor="#05804C"
+                        CornerRadius="3" TextColor="White"/>
+            </StackLayout>
+            <Frame x:Name="WaitingFrame" Margin="10,20,10,0" BorderColor="Black"  
+                   HasShadow="False" HeightRequest="200" WidthRequest="300" CornerRadius="0">
+                <ScrollView>
+                    <StackLayout x:Name="Waiting">
+                        <!-- 대기 명단 라벨이 추가될 부분 -->
+                    </StackLayout>
+                </ScrollView>
+            </Frame>
+
+            <!-- 대기 시간 설정 및 타이머 -->
+            <StackLayout Orientation="Horizontal" Margin="10,20,0,0" HorizontalOptions="Start">
+                <Label Text="진료 시간 편집(분):" VerticalOptions="Center"/>
+                <Entry x:Name="timePerPatientEntry" Keyboard="Numeric" WidthRequest="60" Focused="OnTimeEntryFocused"/>
+                <Button Text="입력" Margin="10, 0, 0, 0" Clicked="OnUpdateTimePerPatientClicked"
+                        HeightRequest="30" WidthRequest="55"
+                        BackgroundColor="#05804C" CornerRadius="5" TextColor="White"/>
+                <Label Text="00:00" x:Name="timerLabel" FontSize="Medium" VerticalOptions="Center"/>
+            </StackLayout>
+
+             <!--알림 설정 옵션-->
+            <StackLayout Orientation="Horizontal" Margin="0,20,0,0" HorizontalOptions="Center" IsVisible="false">
+                <StackLayout>
+                    <Label Text="알림 옵션:" VerticalOptions="Center" />
+                    <Picker x:Name="alertOptionsPicker" Title="옵션 종류를 선택하세요" SelectedIndexChanged="OnAlertOptionChanged">
+                        <Picker.Items>
+                            <x:String>순서변동시</x:String>
+                            <x:String>x번째시</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Entry x:Name="specificPositionEntry" Placeholder="" WidthRequest="100" IsEnabled="False" Focused="OnSpecificPositionEntryFocused"/>
+                </StackLayout>
+                <Button Text="알림 설정" Clicked="OnSetAlertClicked" />
+                <Button Text="알림설정 초기화하기" Clicked="OnClearAlertSettingsClicked" />
+            </StackLayout>
+        </StackLayout>
+
+        <!-- 공지사항 입력 -->
+        <StackLayout Grid.Row="1">
+            <Label Text="공지사항" VerticalOptions="Center"/>
+            <StackLayout Grid.Row="1" Orientation="Horizontal">
+                <Editor x:Name="noticeEditor" Placeholder="공지사항을 입력하세요" HeightRequest="50" WidthRequest="220"/>
+                <Button Text="저장" Clicked="OnUpdateNoticeClicked" WidthRequest="60" HorizontalOptions="End"
+                        BackgroundColor="#05804C" CornerRadius="5" TextColor="White" />
+                <Button Text="삭제" Clicked="OnDeleteNoticeClicked" WidthRequest="60" HorizontalOptions="End"
+                        BackgroundColor="#05804C" CornerRadius="5" TextColor="White"/>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</ContentPage>

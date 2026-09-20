@@ -1,0 +1,27 @@
+# ==============================
+# Visual Studio / Xamarin build artifacts
+# ==============================
+.vs/
+bin/
+obj/
+packages/
+*.user
+*.suo
+*.userprefs
+*.userosscache
+*.sln.docstates
+
+# ==============================
+# 로컬 전용 설정 / 실제 Firebase·관리자 credential
+# (절대 커밋하지 말 것 — 저장소에는 .example 템플릿만 존재)
+# ==============================
+AppConfig.cs
+**/google-services.json
+**/GoogleService-Info.plist
+
+# ==============================
+# OS / 에디터 잡파일
+# ==============================
+.DS_Store
+Thumbs.db
+*.log

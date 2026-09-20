@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginDesign3.LoginPage"
+             BackgroundColor="White">
+    
+    <ContentPage.Content>
+        <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+            <Frame CornerRadius="100"
+                   WidthRequest="180"
+                   HeightRequest="180"
+                   Padding="0"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center">
+                <Image Source="drawable/medqueueimage.png"
+                       HeightRequest="200" WidthRequest="200"
+                       VerticalOptions="Center" HorizontalOptions="Center"/>
+            </Frame>
+            <Label Text="로그인"
+       FontSize="Large"
+       FontAttributes="Bold"
+       TextColor="#05804C"
+       HorizontalOptions="Center"/>
+
+            <Entry x:Name="txtUserName" Placeholder="아이디"
+                   FontSize="Small"/>
+            <Entry x:Name="txtPassword" 
+                   Placeholder="비밀번호"
+                   FontSize="Small"
+                   IsPassword="True"/>
+            <Button Text="로그인"
+                    TextColor="White"
+                    BackgroundColor="#05804C"
+                    CornerRadius="5"
+                    VerticalOptions="Center"
+                    BorderWidth="1.5"
+                    Clicked="LoginButton_Clicked"/>
+            <Button Text="회원가입"
+                    TextColor="White"
+                    BackgroundColor="#05804C"
+                    CornerRadius="5"
+                    Clicked="JoinButton_Clicked"/>
+            <Button x:Name="ForgotIdNPasswordBtn"
+                    Text="아이디/비밀번호 찾기"
+                    TextColor="#05804C"
+                    BackgroundColor="White"
+                    Clicked="ForgotIdNPasswordBtn_Clicked"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

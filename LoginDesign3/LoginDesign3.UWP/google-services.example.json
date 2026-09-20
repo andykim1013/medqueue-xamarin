@@ -1,0 +1,30 @@
+{
+  "_comment": "이 파일은 실제 credential이 없는 예시 템플릿입니다. Firebase 콘솔에서 본인의 Android 앱을 등록한 뒤 내려받는 실제 google-services.json으로 이 파일을 대체하세요. 실제 파일명은 google-services.json 이며 .gitignore에 의해 저장소에 커밋되지 않습니다.",
+  "project_info": {
+    "project_number": "YOUR_PROJECT_NUMBER",
+    "project_id": "YOUR_PROJECT_ID",
+    "storage_bucket": "YOUR_PROJECT_ID.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "YOUR_MOBILESDK_APP_ID",
+        "android_client_info": {
+          "package_name": "com.companyname.LoginDesign3"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "YOUR_API_KEY_HERE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

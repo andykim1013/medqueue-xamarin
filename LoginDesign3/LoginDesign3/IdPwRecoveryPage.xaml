@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginDesign3.IdPwRecoveryPage"
+             BackgroundColor="White">
+    <ContentPage.Content>
+        <StackLayout Padding="40" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+            <Frame CornerRadius="100"
+                   WidthRequest="180"
+                   HeightRequest="180"
+                   Padding="0"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center">
+                <Image Source="medqueueimage.png"
+                       HeightRequest="200" 
+                       WidthRequest="200"/>
+            </Frame>
+            <Label Text="아이디/비밀번호 찾기"
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   TextColor="#05804C"
+                   HorizontalOptions="Center"/>
+
+            <Label Text="이름"></Label>
+            <Entry x:Name="txtName" Placeholder="이름" FontSize="Small"/>
+            <Label Text="전화번호"></Label>
+            <Entry x:Name="txtPhone" Placeholder="휴대폰 번호 입력 ('-'제외 11자리)" FontSize="Small"/>
+            <Label Text="주민등록번호"></Label>
+            <Entry x:Name="txtSSN" Placeholder="ex)20040417-4" FontSize="Small"/>
+            <Label Text="아이디"></Label>
+            <Entry x:Name="txtId" Placeholder="아이디 (비밀번호 찾기 시 입력하세요.)" FontSize="Small"/>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="10" Margin="0,20,0,0">
+                <Button Text="아이디 찾기"
+                    TextColor="White"
+                    BackgroundColor="#05804C"
+                    CornerRadius="5"
+                    VerticalOptions="Center"
+                    BorderWidth="1.5"
+                    Clicked="FindIdButton_Clicked"/>
+                <Button Text="비밀번호 찾기"
+                    TextColor="White"
+                    BackgroundColor="#05804C"
+                    CornerRadius="5"
+                    VerticalOptions="Center"
+                    BorderWidth="1.5"
+                    Clicked="FindPwButton_Clicked"/>
+            </StackLayout>
+            <Label x:Name="resultLabel" Text="" TextColor="DarkGray" HorizontalOptions="Center"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

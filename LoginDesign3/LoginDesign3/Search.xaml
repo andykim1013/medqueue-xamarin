@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginDesign3.Search">
+
+    <StackLayout>
+        <!--헤더-->
+        <Frame BackgroundColor="#05804C" Padding="10">
+            <Label Text="검 색" HorizontalTextAlignment="Center" TextColor="White" FontSize="20"/>
+        </Frame>
+        <!--검색 기능-->
+        <SearchBar x:Name="DoctorsSearch" Placeholder="검색어를 입력하세요" 
+               TextChanged="DoctorsSearch_TextChanged" Margin="0,10,10,0"/>
+        <StackLayout Orientation="Horizontal" Margin="10,0,10,0">
+            <!--분류 기능-->
+            <Picker x:Name="MajorPicker"
+                Title="분류"
+                HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand"
+                SelectedIndexChanged="MajorPicker_SelectedIndexChanged">
+                <Picker.ItemsSource>
+                    <Binding Path="Departments/"/>
+                </Picker.ItemsSource>
+            </Picker>
+            <!--분류 초기화 버튼-->
+            <Button x:Name="ResetBtn" Text="초기화" 
+                BackgroundColor="#05804C" CornerRadius="5"
+                HorizontalOptions="Start"
+                TextColor="White" Clicked="ResetBtn_Clicked">
+            </Button>
+        </StackLayout>
+        <!--결과창-->
+        <ListView x:Name="DoctorsListView" Margin="10" ItemTapped="DoctorsListView_ItemTapped">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                            <Label Text="{Binding Name}"
+                               TextColor="Black"
+                               FontSize="16"
+                               FontAttributes="Bold"
+                               VerticalOptions="Center"/>
+                            <Label Text="{Binding DepartmentName}"
+                               TextColor="Gray"
+                               FontSize="14"
+                               VerticalOptions="Center"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+
+</ContentPage>

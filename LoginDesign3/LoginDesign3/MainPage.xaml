@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginDesign3.MainPage"
+             NavigationPage.HasNavigationBar="False"
+             Padding="0,40,0,0">
+    <ScrollView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout>
+            <!-- 헤더 -->
+            <Frame BackgroundColor="#05804C" Padding="10" Margin="0, 0, 0, 30">
+                <Label Text="WelCome MedQueue" HorizontalTextAlignment="Center" TextColor="White" FontSize="20"/>
+            </Frame>
+        <StackLayout Orientation="Horizontal">
+            
+            <!--왼쪽위 이미지 버튼-->
+            <Image HorizontalOptions="EndAndExpand" Margin="10, 10, 0, 0"
+                   Source="Hi.png" WidthRequest="160"/>
+
+            <!-- 환자 카드 추가 -->
+            <Frame Margin="0, 15, 15, 0" Padding="20" BackgroundColor="White"
+                   CornerRadius="15" BorderColor="#05804C"
+                   HasShadow="False" HeightRequest="150" WidthRequest="260" HorizontalOptions="End" >
+
+                    <StackLayout VerticalOptions="CenterAndExpand">
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Start">
+                            <Image Source="Card.png" WidthRequest="30" VerticalOptions="Start"/>
+                            <Label Text="환자 카드" HorizontalTextAlignment="Center"
+                                   FontSize="20" HorizontalOptions="Start" 
+                                   Padding="0, 0, 0, 30"  TextColor="Gray" />
+                        </StackLayout>
+                        <Label x:Name="lblPatientName"
+                                   Text="이름: "
+                                   FontSize="18"
+                                   TextColor="Black"
+                                   HorizontalOptions="Start" />
+                        <Label x:Name="lblPatientId"
+                                   Text="환자번호: "
+                                   FontSize="18"
+                                   TextColor="Black"
+                                   HorizontalOptions="Start" />
+                    </StackLayout>
+                </Frame>
+        </StackLayout>
+
+            <!-- 메뉴 버튼들을 하단에 배치 -->
+            <Frame Margin="0,30,0,0"
+                Padding="30,0,30,30"
+                CornerRadius="40"
+                VerticalOptions="FillAndExpand"
+                    HasShadow="False">
+
+                <StackLayout>
+                    <BoxView BackgroundColor="#05804C" HeightRequest="1"/>
+                    <Label Margin="20" FontAttributes="Bold" FontSize="20"
+                           HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"
+                           Text="메뉴" TextColor="Black" VerticalOptions="Center" />
+                    <BoxView BackgroundColor="#05804C" HeightRequest="1"/>
+                    <Grid Margin="0, 30, 0, 0" HorizontalOptions="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!--로그인-->
+                        <Frame Grid.Column="0" Padding="10"  HasShadow="False"
+                               BackgroundColor="#05804C" CornerRadius="15">
+                            <StackLayout>
+                                <ImageButton x:Name="btnLogin" Source="Login.png" WidthRequest="150" HeightRequest="150" 
+                                             VerticalOptions="Center" BackgroundColor="#05804C" Clicked="btnLogin_Clicked"/>
+                                <Label  x:Name="lblLogin"
+                                        FontAttributes="Bold"
+                                        FontSize="20"
+                                        HorizontalOptions="CenterAndExpand"
+                                        HorizontalTextAlignment="Center"
+                                        Text="로그인"
+                                        TextColor="White"
+                                        VerticalOptions="CenterAndExpand" />
+                            </StackLayout>
+                        </Frame>
+
+                        <!--로그아웃-->
+                        <Frame x:Name="frameLogout" Grid.Column="0" Padding="10"  IsVisible="false"
+                               BackgroundColor="#05804C" CornerRadius="15">
+                            <StackLayout>
+                                <ImageButton x:Name="btnLogout" Source="Login.png" WidthRequest="150" HeightRequest="150" 
+                                             VerticalOptions="Center" BackgroundColor="#05804C" Clicked="btnLogout_Clicked"/>
+                                <Label  x:Name="lblLogout"
+                                        FontAttributes="Bold" FontSize="20" HorizontalOptions="CenterAndExpand"
+                                        HorizontalTextAlignment="Center" Text="로그아웃" TextColor="White" 
+                                        VerticalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </Frame>
+                        <!--검색-->
+                        <Frame Grid.Column="1" Padding="10"  HasShadow="False"
+                               BackgroundColor="#05804C" CornerRadius="15">
+                            <StackLayout>
+                                <ImageButton x:Name="btnSearch" BackgroundColor="#05804C"
+                                             Source="Search.png"
+                                             WidthRequest="150" HeightRequest="150" Clicked="btnSearch_Clicked"/>
+                                <Label FontAttributes="Bold" FontSize="20"
+                                       HorizontalOptions="CenterAndExpand"
+                                       HorizontalTextAlignment="Center"
+                                       Text="검색"
+                                       TextColor="White"
+                                       VerticalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </Frame>
+                        <!--정보수정-->
+                        <Frame Grid.Column="2" Padding="10"
+                               BackgroundColor="#05804C" CornerRadius="15"
+                               HasShadow="False" IsVisible="False" x:Name="frameOpt">
+                            <StackLayout>
+                                <ImageButton BackgroundColor="#05804C" x:Name="btnOpt" Source="Opt.png"
+                                             WidthRequest="150" HeightRequest="150" Clicked="btnOpt_Clicked"/>
+                                <Label FontAttributes="Bold"
+                                       FontSize="20"
+                                       HorizontalOptions="CenterAndExpand"
+                                       HorizontalTextAlignment="Center"
+                                       Text="정보수정"
+                                       TextColor="White"
+                                       VerticalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </Frame>
+                    </Grid>
+                    <BoxView BackgroundColor="#05804C" HeightRequest="1" Margin="0, 30, 0, 0"/>
+                </StackLayout>
+
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

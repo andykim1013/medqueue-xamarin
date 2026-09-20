@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginDesign3.Userqueue">
+    <Grid Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackLayout Grid.Row="0">
+            <!-- 진료과 Label -->
+            <StackLayout Orientation="Horizontal" Margin="10,20,0,0">
+                <Label Text="진료과:" VerticalOptions="Start" FontSize="20" TextColor="Gray"/>
+                <Label x:Name="departmentLabel" VerticalOptions="Start" WidthRequest="200" FontSize="20" TextColor="Black"/>
+            </StackLayout>
+
+            <!-- 진료실/진료의 Label -->
+            <StackLayout Orientation="Horizontal" Margin="10,5,0,20">
+                <Label Text="진료의:" VerticalOptions="Start" FontSize="20" TextColor="Gray"/>
+                <Label x:Name="doctorLabel" VerticalOptions="Start" WidthRequest="180" FontSize="20" TextColor="Black"/>
+            </StackLayout>
+
+            <!-- 공지사항 표시 -->
+            <StackLayout Grid.Row="1" Margin="10,0,10,0">
+                <BoxView BackgroundColor="#05804C" HeightRequest="1"/>
+                <Label/>
+                <Label x:Name="noticeLabel" HeightRequest="60" FontSize="Medium" 
+               HorizontalOptions="Center" VerticalOptions="Center"
+               TextColor="Black"/>
+                <BoxView BackgroundColor="#05804C" HeightRequest="1"/>
+            </StackLayout>
+
+            <!-- 대기 명단 관리 -->
+
+            <StackLayout Orientation="Horizontal" Margin="10,20,0,0" HorizontalOptions="StartAndExpand">
+                <Label Text="대기열" VerticalOptions="Center" FontSize="Medium" TextColor="Gray"/>
+            </StackLayout>
+
+            <Frame x:Name="WaitingFrame" Margin="0,10,0,0" BorderColor="Black" CornerRadius="0" HasShadow="False" HeightRequest="200" WidthRequest="300">
+                <ScrollView>
+                    <StackLayout x:Name="Waiting">
+                        <!-- 대기 명단 라벨이 추가될 부분 -->
+                    </StackLayout>
+                </ScrollView>
+            </Frame>
+
+            <!-- 대기 시간 설정 및 타이머 -->
+            <StackLayout Orientation="Horizontal" Margin="0,20,0,0" HorizontalOptions="Center">
+                <Label Text="진료 예상 대기 시간(분):" VerticalOptions="Center" FontSize="Medium" TextColor="Gray"/>
+                <Label x:Name="timerLabel" VerticalOptions="Center" FontSize="Medium" TextColor="Black"/>
+            </StackLayout>
+
+            <!-- 알림 설정 옵션 -->
+            <StackLayout Orientation="Horizontal" Margin="0,20,0,0" HorizontalOptions="Center">
+                <StackLayout>
+                    <Label Text="알림 옵션:" VerticalOptions="Center" TextColor="Gray"/>
+                    <Picker x:Name="alertOptionsPicker" Title="옵션 종류를 선택하세요" SelectedIndexChanged="OnAlertOptionChanged">
+                        <Picker.Items>
+                            <x:String>순서변동시</x:String>
+                            <x:String>x번째시</x:String>
+                        </Picker.Items>
+                    </Picker>
+                    <Entry x:Name="specificPositionEntry" Placeholder="" WidthRequest="100" IsEnabled="False" Focused="OnSpecificPositionEntryFocused"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Margin="10, 0, 0, 0">
+                    <Button Text="알림   설정" Clicked="OnSetAlertClicked" WidthRequest="65" 
+                            BackgroundColor="#05804C" TextColor="White" CornerRadius="5" />
+                    <Button Text="설정 초기화" Clicked="OnClearAlertSettingsClicked" WidthRequest="65"
+                            BackgroundColor="#05804C" TextColor="White" CornerRadius="5"/>
+                </StackLayout>
+                
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginDesign3.UserDataEdit">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" Padding="10">
+            <Label Text="회원 정보수정"
+                  HorizontalOptions="Center"
+                  Margin="0,0,0,10"
+                  FontAttributes="Bold"
+                  FontSize="28"
+                  TextColor="#05804C"/>
+
+            <Label Text="아이디"></Label>
+            <StackLayout Orientation="Horizontal">
+                <Entry x:Name="usernameEntry" Placeholder="아이디 입력(6~15자)" WidthRequest="200" IsEnabled="False"/>
+            </StackLayout>
+
+            <Label Text="현재 비밀번호"></Label>
+            <Entry x:Name="currentPasswordEntry" Placeholder="현재 비밀번호 입력" IsPassword="True" />
+
+            <Button Text="재로그인하여 본인 확인" 
+                    BackgroundColor="#05804C"
+                    TextColor="White"
+                    CornerRadius="5"
+                    Clicked="ReLoginButton_Clicked"/>
+
+            <!-- Hidden elements until re-login is verified -->
+            <StackLayout x:Name="editSection" IsVisible="False">
+                <Label Text="비밀번호 변경 (6~15자 !,@,#,$,% 1개 이상포함)"></Label>
+                <Entry x:Name="newPasswordEntry" Placeholder="새 비밀번호 입력" IsPassword="True" />
+                <Entry x:Name="confirmPasswordEntry" Placeholder="새 비밀번호 확인" IsPassword="True" />
+
+                <Label Text="이름"></Label>
+                <Label x:Name="nameLabel"/>
+
+                <Label Text="전화번호"></Label>
+                <Entry x:Name="phoneEntry" Placeholder="휴대폰 번호 입력 ('-'제외 11자리)" />
+
+                <Button Text="수정하기" 
+                        BackgroundColor="#05804C"
+                        TextColor="White"
+                        CornerRadius="5"
+                        Clicked="UpdateButton_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

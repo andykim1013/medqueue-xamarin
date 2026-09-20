@@ -1,0 +1,21 @@
+{
+  "_comment": "[신규 공개용 예시 데이터] 원본 DoctorsInfo.csv/json에는 실제 병원 진료과·의사 명단으로 보이는 데이터가 들어있어 출처가 불명확하므로 이 저장소에는 포함하지 않았습니다. 이 파일은 Firebase Realtime Database의 'Department' 스키마 구조를 보여주기 위한 완전히 가상의 예시 데이터이며, 실제 인물/병원과 무관합니다. 앱 코드는 이 파일을 직접 읽지 않으며, 개발자가 자신의 Firebase 프로젝트에 이 구조로 데이터를 직접 입력(seed)할 때 참고용으로만 사용합니다.",
+  "Department": {
+    "예시진료과": {
+      "Doctor": {
+        "홍길동": {
+          "Alarm": "",
+          "Notice": "",
+          "Patients": [],
+          "WaitingTime": ""
+        },
+        "김철수": {
+          "Alarm": "",
+          "Notice": "",
+          "Patients": [],
+          "WaitingTime": ""
+        }
+      }
+    }
+  }
+}

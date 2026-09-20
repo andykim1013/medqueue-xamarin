@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LoginDesign3.JoinPage">
+
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" Padding="10">
+            <Frame CornerRadius="100"
+                   WidthRequest="180"
+                   HeightRequest="180"
+                   Padding="0"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center">
+                <Image Source="drawable/medqueueimage.png"
+                       HeightRequest="200" 
+                       WidthRequest="200"/>
+            </Frame>
+            <Label Text="메디큐(MedQueue) 회원가입"
+                  HorizontalOptions="Center"
+                  Margin="0,0,0,10"
+                  FontAttributes="Bold"
+                  FontSize="28"
+                  TextColor="#05804C"/>
+
+            <Label Text="아이디"></Label>
+            <StackLayout Orientation="Horizontal">
+
+                <Entry x:Name="usernameEntry" Placeholder="아이디 입력(6~15자)"
+                       WidthRequest="200"/>
+                <Button Text="중복 확인" 
+                        BackgroundColor="#05804C"
+                        TextColor="White"
+                        CornerRadius="5"
+                        Clicked="CheckUsernameButton_Clicked"/>
+            </StackLayout>
+            <Label Text="비밀번호"></Label>
+            <Entry x:Name="passwordEntry" Placeholder="비밀번호 입력 (6~15자 !,@,#,$,% 1개 이상포함)" IsPassword="True" />
+            <Entry Placeholder="비밀번호 확인" IsPassword="True" />
+            <Label Text="이름"></Label>
+            <Entry x:Name="nameEntry" Placeholder="이름" />
+            <Label Text="전화번호"></Label>
+            <Entry x:Name="phoneEntry" Placeholder="휴대폰 번호 입력 ('-'제외 11자리)" />
+            <Label Text="주민등록번호" />
+            <Editor x:Name="birthdateEntry" Placeholder="ex)20040417-4"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="비밀번호 저장" />
+                <Switch IsToggled="False" />
+            </StackLayout>
+            <Button Text="가입하기" 
+                    BackgroundColor="#05804C"
+                    TextColor="White"
+                    CornerRadius="5"
+                    Clicked="JoinPageButton_Clicked"/>
+            <Label Text="계정이 이미 있으신가요? 로그인" TextColor="#05804C" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
+
+
